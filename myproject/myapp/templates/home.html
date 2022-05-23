@@ -1,0 +1,13 @@
+{% load cache %}
+{% cache 25 body %}
+
+<body>
+
+    <h1>this is a custom caching .......</h1>
+
+    <h1>This is  low-level  example {{st}}</h1>
+    <h1> NAME : {{stu.name}}</h1><hr>
+    <h1> ROLL:{{stu.roll}}</h1>
+</body>
+
+{% endcache %}

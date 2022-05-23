@@ -1,0 +1,57 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Caching testing  code  </h1>-->
+<!--    <h1>Caching testing  code1  </h1>-->
+<!--    <h1>Caching testing  code2  </h1>-->
+<!--    <h1>Caching testing  code3  </h1>-->
+<!--    <h1>Caching testing  code4  </h1>-->
+<!--   -->
+
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div class="container mt-5">
+    <form method="get">
+        <div class="mx-auto text-center d-flex ">
+            <input class="form-control" name="re" placeholder="Search" style="width:400px">
+            <button class="btn btn-primary">Search</button>
+        </div>
+    </form>
+</div>
+<div class="container mt-5">
+     {% if re %}
+    <table>
+        <thead>
+        <tr>
+            <th style="width:30%">Redis Name</th>
+            <th style="width:40%">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for r in re %}
+        <tr class="pt-4">
+            <td>{{r.name}}</td>
+            <td>{{r.desc}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        {% else %}
+        <p class="text-center"> No recipe found. Try something else</p>
+        {% endif %}
+	</div>
+
+</body>
+</html>
