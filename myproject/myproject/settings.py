@@ -123,13 +123,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # CACHE_MIDDLEWARE_KEY_PREFIX =''
 
 # using per site cache
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-        'LOCATION': 'myapp_cache',
-
-    }
-}
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+#         'LOCATION': 'myapp_cache',
+#
+#     }
+# }
 
 # using file based caching
 # CACHES = {
@@ -154,9 +154,13 @@ CACHES = {
 # CACHES = {
 #     'default': {
 #         'BACKEND': 'django.core.cache.backends.memcached.PyMemcacheCache',
-#         'LOCATION': '127.0.0.1:11211',
+#         'LOCATION': [
+#             '172.19.26.240:11211',
+#             '172.19.26.242:11211',
+#         ]
 #     }
 # }
+
 # redis server
 # CACHE_TTL = 60 * 1500
 # CACHES = {
@@ -169,4 +173,20 @@ CACHES = {
 #         # "KEY_PREFIX": "example"
 #     }}
 
+# SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+#         'LOCATION': '127.0.0.1.8000',
+#         # 'LOCATION':
+#         #     '172.19.26.240:11211',
+#     }
+# }
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': 'unix:/tmp/memcached.sock',
+    }
+}

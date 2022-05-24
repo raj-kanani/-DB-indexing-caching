@@ -8,7 +8,3 @@ admin.site.register(Student)
 class RedisAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'desc']
 
-
-@admin.register(Movie)
-class RedisAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'desc', 'image', 'ticket_price']

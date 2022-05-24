@@ -30,12 +30,12 @@ def custom_cache(request):
 #     st = cache.get_or_set('roll', 150, 200)
 #     return render(request, 'home.html', {'st': st})
 
-# def low_level(request):
-#     data = {'name': 'Raj', 'roll': 201}
-#     cache.set_many(data, 15)
-#     sv = cache.get_many(data)
-#     print(sv, '*************')
-#     return render(request, 'home.html', {'stu': sv})
+def low_level(request):
+    data = {'name': 'Raj', 'roll': 201}
+    cache.set_many(data, 15)
+    sv = cache.get_many(data)
+    print(sv, '*************')
+    return render(request, 'home.html', {'stu': sv})
 
 
 # def low_level(request):
@@ -53,7 +53,6 @@ CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
 
 def get_redis(filter_redis=None):
     if filter_redis:
-
         redis = Redis.objects.filter(name__contains=filter_redis)
     else:
         redis = Redis.objects.all()
@@ -86,3 +85,6 @@ def show_redis(request, id):
     return render(request, 'show.html', {'redis': redis})
 
 
+def memcache(request):
+    st = cache.get_or_set('mobile', 'vivo', 200)
+    return render(request, 'memcache.html', {'st': st})

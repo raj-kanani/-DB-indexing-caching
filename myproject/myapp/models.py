@@ -34,11 +34,4 @@ class Redis(models.Model):
         return self.name
 
 
-class Movie(models.Model):
-    name = models.CharField(max_length=100)
-    desc = models.TextField()
-    image = models.CharField(max_length=400)
-    ticket_price = models.PositiveIntegerField()
 
-    def __str__(self):
-        return self.name

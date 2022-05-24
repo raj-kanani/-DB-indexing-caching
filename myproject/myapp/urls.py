@@ -8,5 +8,6 @@ urlpatterns = [
     path('get/', views.get_redis),
     path('show/<int:id>/', views.show_redis),
     path('custom/', cache_page(25)(views.custom_cache)),
-    # path('low/', views.low_level),
+    path('low/', views.low_level),
+    path('memcache/', views.memcache),
 ]
